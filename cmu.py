@@ -3,6 +3,9 @@ import webbrowser
 from subprocess import *
 import os
 import pythonwifi
+from pygame import *
+
+file = 'file.wav'
 
 
 class SpeechRecognition:
@@ -12,6 +15,7 @@ class SpeechRecognition:
         self.google_test = None
         self.wit_text = None
         self.api_text = None
+        self.music = None
 
     def translate_from_voice(self):
         # obtain audio from the microphone
@@ -103,14 +107,10 @@ class SpeechRecognition:
         return False
 
     def playMuisc(self):
-        file = 'file.wav'
-        pygame.init()
-        pygame.mixer.init()
-        pygame.mixer.music.load(file)
-        pygame.mixer.music.play(-1)
+        self.music = Popen("vlc file", shell=True)
 
     def stopMusic(self):
-        pygame.quit()
+        self.music.terminate()
 
     # volume up done
     def volume_up(self):
@@ -136,7 +136,7 @@ class SpeechRecognition:
 
     # open browser done
     def open_browser(self):
-        webbrowser.open_new_tab("https://www.google.com")
+        webbrowser.open("https://www.google.com")
 
     # search queries
     def search_browser(self, text):
