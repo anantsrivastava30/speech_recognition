@@ -4,14 +4,13 @@ import speech_recognition as sr
 import webbrowser
 import os
 from subprocess import *
-
 music = None
 flag_music = False
 
 root = tkinter.Tk()
 commandText = tkinter.StringVar()
-bluetoothText = tkinter.StringVar()
-bluetoothText.set("Off")
+gray88toothText = tkinter.StringVar()
+gray88toothText.set("Off")
 airconditionText = tkinter.StringVar()
 airconditionText.set("Off")
 temperatureText = tkinter.IntVar()
@@ -25,12 +24,12 @@ def onclick():
     commandText.set(s)
 
 
-def bluetooth_on():
-    bluetoothText.set("On")
+def gray88tooth_on():
+    gray88toothText.set("On")
 
 
-def bluetooth_off():
-    bluetoothText.set("Off")
+def gray88tooth_off():
+    gray88toothText.set("Off")
 
 
 def aircondition_on():
@@ -129,14 +128,14 @@ def analyze_text(text):
             aircondition_off()
             return True
 
-    if 'bluetooth' in text:
+    if 'gray88tooth' in text:
         if 'on' in text:
-            print('bluetooth on')
-            bluetooth_on()
+            print('gray88tooth on')
+            gray88tooth_on()
             return True
         elif 'off' in text:
-            print('bluetooth off')
-            bluetooth_off()
+            print('gray88tooth off')
+            gray88tooth_off()
             return True
     if 'map' in text:
         open_google_map()
@@ -194,41 +193,47 @@ def search_map(text):
 
 
 root.title("Speech Recognition")
-ButtonInput = tkinter.Button(root, text="click to input command", command=onclick)
-InputText = tkinter.Label(root, text="Command Input")
+root.focus_set()
+root.configure(background='floralwhite')
+root.geometry('750x750+750+750')
+root.frame()
+ButtonInput_Image = tkinter.PhotoImage(file = "microphone.gif")
+ButtonInput = tkinter.Button(root, text=" Speak Now ", command=onclick, fg = "black", bg = "gray88", relief='raised', font=("Sans sarif", 16), image = ButtonInput_Image)
+#InputText = tkinter.Label(root, text="Command Input", relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
 
-Commendhint = tkinter.Label(root, text="The Command is: ")
-CommendShow = tkinter.Entry(root, textvariable=commandText)
+Commendhint = tkinter.Label(root, text=" You Said ", relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
+CommendShow = tkinter.Entry(root, textvariable=commandText, relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
 
-VolumeShow = tkinter.Label(root, text="Current Volume is: ")
-VolumeAmout = tkinter.Entry(root, textvariable=volumeText, width=5)
+VolumeShow = tkinter.Label(root, text=" Volume ", relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
+VolumeAmout = tkinter.Entry(root, textvariable=volumeText, width=5, relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
 
-BlueToothText = tkinter.Label(root, text="BlueTooth")
-BlueToothShow = tkinter.Entry(root, textvariable=bluetoothText, width=5)
+BlueToothText = tkinter.Label(root, text=" Bluetooth ", relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
+BlueToothShow = tkinter.Entry(root, textvariable=gray88toothText, width=5, relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
 
-AirConditionText = tkinter.Label(root, text="AirCondition")
-AirConditionShow = tkinter.Entry(root, textvariable=airconditionText, width=5)
+AirConditionText = tkinter.Label(root, text=" Air Condition ", relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
+AirConditionShow = tkinter.Entry(root, textvariable=airconditionText, width=5, relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
 
-TemperatureText = tkinter.Label(root, text="Temperature")
-TemperatureShow = tkinter.Entry(root, textvariable=temperatureText, width=5)
+TemperatureText = tkinter.Label(root, text=" Temperature ", relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
+TemperatureShow = tkinter.Entry(root, textvariable=temperatureText, width=5, relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
 
+ButtonInput.place( x = 300, y = 100)
+# ButtonInput.grid(padx = 10, pady = 10, column = 500, row = 200)
+#InputText.grid(padx = 5, column = 1, row = 0)
 
-ButtonInput.grid(padx = 10, pady = 10, column = 0, row = 0)
-InputText.grid(padx = 5, column = 1, row = 0)
+Commendhint.place( x = 200, y = 300)
+CommendShow.place( x = 350, y = 300)
 
-Commendhint.grid(padx = 10, pady = 10, column = 0, row = 1)
-CommendShow.grid(padx = 5, column = 1, row = 1)
+VolumeShow.place( x = 100, y = 500)
+VolumeAmout.place( x = 200, y = 500)
 
-VolumeShow.grid(padx = 5, pady = 5, column = 0, row = 2)
-VolumeAmout.grid(column = 1, row = 2)
+BlueToothText.place( x = 350, y = 500)
+BlueToothShow.place(x = 500, y = 500)
 
-BlueToothText.grid(padx = 5, pady = 5, column = 0, row = 3)
-BlueToothShow.grid(column = 1, row = 3)
+AirConditionText.place( x = 50, y = 600)
+AirConditionShow.place(x = 200, y = 600)
 
-AirConditionText.grid(padx = 5, pady = 5, column = 0, row = 4)
-AirConditionShow.grid(column = 1, row = 4)
+TemperatureText.place( x = 350, y = 600)
+TemperatureShow.place(x = 500, y = 600)
 
-TemperatureText.grid(padx = 5, pady = 5, column = 0, row = 5)
-TemperatureShow.grid(column = 1, row = 5)
 
 root.mainloop()
