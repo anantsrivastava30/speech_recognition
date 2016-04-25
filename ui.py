@@ -197,6 +197,8 @@ root.focus_set()
 root.configure(background='floralwhite')
 root.geometry('750x750+750+750')
 root.frame()
+
+
 ButtonInput_Image = tkinter.PhotoImage(file = "microphone.gif")
 ButtonInput = tkinter.Button(root, text=" Speak Now ", command=onclick, fg = "black", bg = "gray88", relief='raised', font=("Sans sarif", 16), image = ButtonInput_Image)
 #InputText = tkinter.Label(root, text="Command Input", relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
@@ -216,24 +218,24 @@ AirConditionShow = tkinter.Entry(root, textvariable=airconditionText, width=5, r
 TemperatureText = tkinter.Label(root, text=" Temperature ", relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
 TemperatureShow = tkinter.Entry(root, textvariable=temperatureText, width=5, relief = 'raised', bg = 'gray88', fg = 'black', font=("Sans sarif", 16))
 
-ButtonInput.place( x = 300, y = 100)
+ButtonInput.place( x = 50, y = 100)
 # ButtonInput.grid(padx = 10, pady = 10, column = 500, row = 200)
 #InputText.grid(padx = 5, column = 1, row = 0)
 
-Commendhint.place( x = 200, y = 300)
-CommendShow.place( x = 350, y = 300)
+Commendhint.place( x = 50, y = 300)
+CommendShow.place( x = 50, y = 350)
 
-VolumeShow.place( x = 100, y = 500)
-VolumeAmout.place( x = 200, y = 500)
+VolumeShow.place( x = 50, y = 450)
+VolumeAmout.place( x = 200, y = 450)
 
-BlueToothText.place( x = 350, y = 500)
-BlueToothShow.place(x = 500, y = 500)
+BlueToothText.place( x = 50, y = 550)
+BlueToothShow.place(x = 200, y = 550)
 
-AirConditionText.place( x = 50, y = 600)
-AirConditionShow.place(x = 200, y = 600)
+AirConditionText.place( x = 50, y = 650)
+AirConditionShow.place(x = 200, y = 650)
 
-TemperatureText.place( x = 350, y = 600)
-TemperatureShow.place(x = 500, y = 600)
+TemperatureText.place( x = 50, y = 750)
+TemperatureShow.place(x = 200, y = 750)
 
 
 root.mainloop()
